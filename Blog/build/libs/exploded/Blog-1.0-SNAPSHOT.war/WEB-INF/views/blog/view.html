@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h3>View Blog</h3>
+<p>
+    <a href="/blogs">Blog list</a>
+</p>
+<div>
+    <div>
+        <label>Author name:</label>
+        <label th:text="${blog.getAuthor_name()}"></label>
+    </div>
+    <div>
+        <label>Blog's context:</label>
+        <br>
+        <label th:text="${blog.getContext()}"></label>
+    </div>
+</div>
+</body>
+</html>
