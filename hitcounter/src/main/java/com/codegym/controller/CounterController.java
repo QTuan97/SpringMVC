@@ -1,0 +1,20 @@
+package com.codegym.controller;
+
+import com.codegym.model.MyCounter;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@SessionAttributes("mycounter")
+public class CounterController {
+    @ModelAttribute("mycounter")
+    public MyCounter setUpCounter() {
+        return new MyCounter();
+    }
+
+    @GetMapping("/index")
+    public String get(@ModelAttribute("mycounter") MyCounter myCounter) {
+        myCounter.increment();
+        return "index";
+    }
+}
