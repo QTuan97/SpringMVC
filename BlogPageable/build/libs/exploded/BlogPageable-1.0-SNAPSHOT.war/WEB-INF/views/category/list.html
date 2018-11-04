@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Category</h1>
+<p>
+    <a href="/blogs">Blog list</a>
+</p>
+<p>
+    <a href="/create-category">Create category</a>
+</p>
+</body>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="categories : ${categories}">
+        <tr>
+            <td><a th:href="@{/view-category/__${categories.id}__}" th:text="${categories.name}"></a></td>
+            <td><a th:href="@{/edit-category/__${categories.id}__}">Edit</a></td>
+            <td><a th:href="@{/delete-category/__${categories.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</html>
