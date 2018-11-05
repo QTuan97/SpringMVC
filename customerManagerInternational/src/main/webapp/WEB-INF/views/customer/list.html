@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="#{language}"> </span> <a href="?lang=en"> English</a>| <a href="?lang=vi">Việt Nam</a>
+<br>
+<br>
+<a href="/create-customer" th:text="#{create.customer}"></a>
+<h1 th:text="#{customer.table}"></h1>
+<table border="1">
+    <tr>
+        <th th:text="#{customer.frist_name}"></th>
+        <th th:text="#{customer.last_name}"></th>
+        <th th:text="#{edit.button}"></th>
+        <th th:text="#{delete.button}"></th>
+    </tr>
+    <th:block th:each="customer : ${customers}">
+        <tr>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td><a th:href="@{/edit-customer/__${customer.id}__ }" th:text="#{edit.button}"></a></td>
+            <td><a th:href="@{/delete-customer/__${customer.id}__ }" th:text="#{delete.button}"></a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
